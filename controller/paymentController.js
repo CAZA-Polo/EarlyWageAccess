@@ -181,7 +181,8 @@ module.exports.collect_payment = async (req, res) => {
             }
 
             // Check late payment fee
-            const isLate = availment.loan_due_date <= new Date();
+            const today = new Date();
+            const isLate = availment.loan_due_date <= today;
             let totalPaymentAmount = payment_amount;
             let latePaymentFee = 0;
 
